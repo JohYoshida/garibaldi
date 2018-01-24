@@ -2,20 +2,19 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
+const uuid = require('uuid/v1');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Temporary article database
-const articles = [
-  {title: 'Article Example', text: 'This is what an article looks like'}
-];
+// Database setup
+const dbconfig = require('./knexfile.js')[process.env.DB_ENV];
+const knex = require('knex')(dbconfig);
 
 // Middleware
 app.use(bodyParser.urlencoded({
   extended: true
 }));
-// app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, 'public')));
 
 // View engine
@@ -23,13 +22,17 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // Routes
-app.get('/', (req, res) => res.render('index', {articles}));
+app.get('/', (req, res) => {
+  knex('articles').then(articles => {
+    res.render('index', {articles});
+  });
+});
 app.post('/', (req, res) => {
-  articles.push({
+  knex('articles').insert({
+    id: uuid(),
     title: req.body.title,
     text: req.body.text
-  });
-  res.redirect('/');
+  }).then(() => res.redirect('/'));
 });
 app.get('/new', (req, res) => res.render('new'));
 
