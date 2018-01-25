@@ -35,6 +35,14 @@ app.post("/", (req, res) => {
     .then(() => res.redirect("/"));
 });
 app.get("/new", (req, res) => res.render("new"));
+app.get("/articles/:id", (req, res) => {
+  knex("articles")
+    .where({ id: req.params.id })
+    .first()
+    .then(article => {
+      res.render("show", { article });
+    });
+});
 
 // Start server
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
