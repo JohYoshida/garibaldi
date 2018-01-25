@@ -9,7 +9,7 @@
     <a href="/new">New Article</a>
     <% articles.forEach(article => { %>
       <article class="">
-        <h2><%= article.title %></h2>
+        <h2><a href="/articles/<%= article.id %>"><%= article.title %></a></h2>
         <p><%= article.text %></p>
       </article>
     <% }) %>
