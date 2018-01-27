@@ -46,6 +46,6 @@ app.get("/articles/:id", (req, res) => {
 });
 app.get("/articles/:id/edit", (req, res) => {
   getOneAricle(req.params.id, res, "edit");
-})
+});
 // Start server
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
