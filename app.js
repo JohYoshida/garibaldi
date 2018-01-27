@@ -1,6 +1,7 @@
 // Server requirements
 const express = require("express");
 const bodyParser = require("body-parser");
+const methodOverride = require("method-override");
 const path = require("path");
 const uuid = require("uuid/v1");
 
@@ -17,10 +18,12 @@ const knex = require("knex")(dbconfig);
 const getAllArticles = require("./lib/get-all-articles");
 const getOneAricle = require("./lib/get-one-article");
 const postArticle = require("./lib/post-article");
+const editArticle = require("./lib/edit-article");
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
+app.use(methodOverride("_method"));
 
 // View engine
 app.set("views", path.join(__dirname, "views"));
@@ -32,6 +35,9 @@ app.get("/", (req, res) => {
 });
 app.post("/", (req, res) => {
   postArticle(req.body, res);
+});
+app.put("/articles/:id", (req, res) => {
+  editArticle(req.params.id, req.body, res);
 });
 app.get("/new", (req, res) => res.render("new"));
 app.get("/articles/:id", (req, res) => {
