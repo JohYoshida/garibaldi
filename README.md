@@ -4,7 +4,7 @@ A simple blog application for a friend traveling overseas!
 
 ## Getting Started
 1. Clone
-```git clone git@github.com:JohYoshida/nodejs-blog.git```
+```git clone git@github.com:JohYoshida/garibaldi.git```
 2. Create PG Database
 ```
 sudo su - postgres
