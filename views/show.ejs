@@ -12,6 +12,11 @@
       <p><%= article.text %></p>
     </article>
     <% include partials/footer %>
-    <button type="button" name="button"><a href="/articles/<%= article.id %>/edit">Edit Article</a></button>
+    <form action="/articles/<%= article.id %>/edit">
+      <button type="submit" name="button">Edit Article</button>
+    </form>
+    <form method="POST" action="/articles/<%= article.id %>?_method=DELETE">
+      <button type="submit">Delete Article</button>
+    </form>
   </body>
 </html>
