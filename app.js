@@ -19,6 +19,7 @@ const getAllArticles = require("./lib/get-all-articles");
 const getOneAricle = require("./lib/get-one-article");
 const postArticle = require("./lib/post-article");
 const editArticle = require("./lib/edit-article");
+const deleteArticle = require("./lib/delete-article");
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -41,8 +42,10 @@ app.put("/articles/:id", (req, res) => {
 });
 app.get("/new", (req, res) => res.render("new"));
 app.get("/articles/:id", (req, res) => {
-  const mode = "show";
   getOneAricle(req.params.id, res, "show");
+});
+app.delete("/articles/:id", (req, res) => {
+  deleteArticle(req.params.id, res);
 });
 app.get("/articles/:id/edit", (req, res) => {
   getOneAricle(req.params.id, res, "edit");
