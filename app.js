@@ -37,10 +37,10 @@ app.get("/", (req, res) => {
 app.post("/", (req, res) => {
   postArticle(req.body, res);
 });
+app.get("/new", (req, res) => res.render("new"));
 app.put("/articles/:id", (req, res) => {
   editArticle(req.params.id, req.body, res);
 });
-app.get("/new", (req, res) => res.render("new"));
 app.get("/articles/:id", (req, res) => {
   getOneAricle(req.params.id, res, "show");
 });
