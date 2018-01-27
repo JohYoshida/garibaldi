@@ -14,12 +14,7 @@ const dbconfig = require("./knexfile.js")[process.env.DB_ENV];
 const knex = require("knex")(dbconfig);
 
 // Scripts
-// import {getAllArticles} from "lib/knex-queries";
-const getAllArticles = require("./lib/get-all-articles");
-const getOneAricle = require("./lib/get-one-article");
-const postArticle = require("./lib/post-article");
-const editArticle = require("./lib/edit-article");
-const deleteArticle = require("./lib/delete-article");
+const ArticleHelpers = require("./lib/article-helpers");
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -32,23 +27,23 @@ app.set("view engine", "ejs");
 
 // Routes
 app.get("/", (req, res) => {
-  getAllArticles(res);
+  ArticleHelpers.getAllArticles(res);
 });
 app.post("/", (req, res) => {
-  postArticle(req.body, res);
+  ArticleHelpers.postArticle(req.body, res);
 });
 app.get("/new", (req, res) => res.render("new"));
 app.put("/articles/:id", (req, res) => {
-  editArticle(req.params.id, req.body, res);
+  ArticleHelpers.editArticle(req.params.id, req.body, res);
 });
 app.get("/articles/:id", (req, res) => {
-  getOneAricle(req.params.id, res, "show");
+  ArticleHelpers.getOneAricle(req.params.id, res, "show");
 });
 app.delete("/articles/:id", (req, res) => {
-  deleteArticle(req.params.id, res);
+  ArticleHelpers.deleteArticle(req.params.id, res);
 });
 app.get("/articles/:id/edit", (req, res) => {
-  getOneAricle(req.params.id, res, "edit");
+  ArticleHelpers.getOneAricle(req.params.id, res, "edit");
 });
 // Start server
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
