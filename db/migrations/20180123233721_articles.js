@@ -4,7 +4,7 @@ exports.up = function(knex, Promise) {
     knex.schema.createTable("articles", table => {
       table.string("id");
       table.string("title");
-      table.string("text");
+      table.text("text");
     })
   ]);
 };
