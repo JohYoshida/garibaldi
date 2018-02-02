@@ -27,9 +27,11 @@ function insertParagraph() {
   .append("<input type='hidden' name='component' value='p'>");
 }
 
+let imageCount = 1;
 function insertImage() {
   $("<section></section>").insertBefore(".article-submit")
   .append("<button class='remove-component' type='button'>Remove Image</button>")
-  .append("<input type='text' name='image' placeholder='image'>")
+  .append("<input type='file' name='image_" + imageCount + "' placeholder='image'>")
   .append("<input type='hidden' name='component' value='i'>");
+  imageCount++;
 }
