@@ -19,9 +19,15 @@
       <% var imgs = 0 %>
       <h1><%= article.title %></h1>
       <% if (typeof(article.components) === "string") { %>
-        <h2><%= article.headers %></h2>
-        <p><%= article.paragraphs %></p>
-        <img src="/images/<%= article.images %>.jpeg" alt="image">
+        <% if (article.headers && article.headers.length > 0) { %>
+          <h2><%= article.headers %></h2>
+        <% } %>
+        <% if (article.paragraphs && article.paragraphs.length > 0) { %>
+          <p><%= article.paragraphs %></p>
+        <% } %>
+        <% if (article.images && article.images.length > 0) { %>
+          <img src="/images/<%= article.images %>.jpeg" alt="image">
+        <% } %>
       <% } else { %>
         <% article.components.forEach(function(el) { %>
           <% switch(el) {
