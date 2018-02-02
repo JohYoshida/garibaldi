@@ -7,13 +7,15 @@
     <% include partials/header %>
     <h1>Create New Article</h1>
     <a href="/">Index</a>
-    <form action="/" method="post">
+    <button class="add-header" type="button" name="button">Add Header</button>
+    <button class="add-paragraph" type="button" name="button">Add Paragraph</button>
+    <button class="add-image" type="button" name="button">Add Image</button>
+    <form class="article-form" action="/" method="post">
       <label for="title">Title</label>
       <input type="text" name="title" placeholder="title">
-      <label for="text">Body</label>
-      <textarea name="text" rows="8" cols="80"></textarea>
-      <input type="submit" name="submit" value="Submit Article">
+      <input class="article-submit" type="submit" name="submit" value="Submit Article">
     </form>
     <% include partials/footer %>
+    <script type="text/javascript" src="/scripts/add-article-components.js"></script>
   </body>
 </html>
