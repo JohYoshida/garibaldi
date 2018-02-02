@@ -2,6 +2,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const methodOverride = require("method-override");
+const fileUpload = require("express-fileupload");
 const path = require("path");
 const uuid = require("uuid/v1");
 
@@ -18,7 +19,8 @@ const ArticleHelpers = require("./lib/article-helpers");
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "./public")));
+app.use(fileUpload());
 app.use(methodOverride("_method"));
 
 // View engine
@@ -30,7 +32,7 @@ app.get("/", (req, res) => {
   ArticleHelpers.getAllArticles(res);
 });
 app.post("/", (req, res) => {
-  ArticleHelpers.postArticle(req.body, res);
+  ArticleHelpers.postArticle(req, res);
 });
 app.get("/new", (req, res) => res.render("new"));
 app.put("/articles/:id", (req, res) => {
