@@ -9,13 +9,23 @@ exports.seed = function(knex, Promise) {
       return knex("articles").insert([
         {
           id: uuid(),
-          title: "Sample Article 1",
-          text: "This is what an article will look like."
+          title: "A Proper Article",
+          text: "This is what an article will look like.",
+          created_at: new Date(),
+          components: JSON.stringify(["h", "p", "h", "p", "i", "p"]),
+          headers: JSON.stringify(["Headers", "Images"]),
+          paragraphs: JSON.stringify([
+            "A proper article should have a header.",
+            "A proper article may have an image.",
+            "The image may be surrounded by text."
+          ]),
+          images: JSON.stringify(["alien"])
         },
         {
           id: uuid(),
-          title: "Sample Article 2",
-          text: "This is what another article will look like."
+          title: "Old Article",
+          text: "This is what an old article will look like.",
+          created_at: new Date()
         }
       ]);
     });
