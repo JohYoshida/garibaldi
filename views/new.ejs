@@ -7,15 +7,19 @@
     <% include partials/header %>
     <h1>Create New Article</h1>
     <a href="/">Index</a>
-    <button class="add-header" type="button" name="button">Add Header</button>
-    <button class="add-paragraph" type="button" name="button">Add Paragraph</button>
-    <button class="add-image" type="button" name="button">Add Image</button>
+    <section class="article-buttons">
+      <button class="add-header" type="button" name="button">Add Header</button>
+      <button class="add-paragraph" type="button" name="button">Add Paragraph</button>
+      <button class="add-image" type="button" name="button">Add Image</button>
+    </section>
     <form class="article-form" action="/" method="post">
       <label for="title">Title</label>
-      <input type="text" name="title" placeholder="title">
+      <input class="article-title" type="text" name="title" placeholder="title">
+      <div class="alert"></div>
       <input class="article-submit" type="submit" name="submit" value="Submit Article">
     </form>
     <% include partials/footer %>
     <script type="text/javascript" src="/scripts/add-article-components.js"></script>
+    <!-- <script type="text/javascript" src="/scripts/article-submission.js"></script> -->
   </body>
 </html>
