@@ -8,8 +8,38 @@
     <a href="/">Index</a>
     <a href="/new">New Article</a>
     <article>
-      <h1><%= article.title %></a></h1>
-      <p><%= article.text %></p>
+      <% var heads = 0 %>
+      <% var paras = 0 %>
+      <% var imgs = 0 %>
+      <h1><%= article.title %></h1>
+      <% article.components.forEach(function(el) { %>
+        <% switch(el) {
+          case "h": %>
+            <% if (typeof(article.headers) !== 'string') { %>
+              <h2><%= article.headers[heads] %></h2>
+              <% heads++ %>
+            <% } else { %>
+              <h2><%= article.headers %></h2>
+            <% } %>
+            <% break; %>
+          <% case "p": %>
+            <% if (typeof(article.paragraphs) !== 'string') { %>
+              <p><%= article.paragraphs[paras] %></p>
+              <% paras++ %>
+            <% } else { %>
+              <p><%= article.paragraphs %></p>
+            <% } %>
+            <% break; %>
+          <% case "i": %>
+            <% if (typeof(article.images) !== 'string') { %>
+              <img src="<%= article.images[imgs] %>" alt="image <%= imgs %>">
+              <% imgs++ %>
+            <% } else { %>
+              <img src="<%= article.images %>" alt="image <%= imgs %>">
+            <% } %>
+            <% break; %>
+        <% } %>
+      <% }) %>
     </article>
     <% include partials/footer %>
     <form action="/articles/<%= article.id %>/edit">
