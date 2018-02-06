@@ -19,7 +19,7 @@ exports.seed = function(knex, Promise) {
             "A proper article may have an image.",
             "The image may be surrounded by text."
           ]),
-          images: JSON.stringify(["alien"])
+          images: JSON.stringify(["alien.jpeg"])
         },
         {
           id: uuid(),
