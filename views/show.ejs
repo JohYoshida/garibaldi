@@ -18,47 +18,24 @@
       <% var paras = 0 %>
       <% var imgs = 0 %>
       <h1><%= article.title %></h1>
-      <% if (typeof(article.components) === "string") { %>
-        <% if (article.headers && article.headers.length > 0) { %>
-          <h2><%= article.headers %></h2>
+      <% article.components.forEach(function(el) { %>
+        <% switch(el) {
+          case "h": %>
+            <h2><%= article.headers[heads] %></h2>
+            <% heads++ %>
+            <% break; %>
+          <% case "p": %>
+            <p><%= article.paragraphs[paras] %></p>
+            <% paras++ %>
+            <% break; %>
+          <% case "i": %>
+            <% if (article.images) { %>
+              <img src="/images/<%= article.images[imgs] %>" alt="image <%= imgs %>">
+            <% } %>
+            <% imgs++ %>
+            <% break; %>
         <% } %>
-        <% if (article.paragraphs && article.paragraphs.length > 0) { %>
-          <p><%= article.paragraphs %></p>
-        <% } %>
-        <% if (article.images && article.images.length > 0) { %>
-          <img src="/images/<%= article.images %>.jpeg" alt="image">
-        <% } %>
-      <% } else { %>
-        <% article.components.forEach(function(el) { %>
-          <% switch(el) {
-            case "h": %>
-              <% if (typeof(article.headers) !== 'string') { %>
-                <h2><%= article.headers[heads] %></h2>
-                <% heads++ %>
-              <% } else { %>
-                <h2><%= article.headers %></h2>
-              <% } %>
-              <% break; %>
-            <% case "p": %>
-              <% if (typeof(article.paragraphs) !== 'string') { %>
-                <p><%= article.paragraphs[paras] %></p>
-                <% paras++ %>
-              <% } else { %>
-                <p><%= article.paragraphs %></p>
-              <% } %>
-              <% break; %>
-            <% case "i": %>
-              <% if (typeof(article.images) !== 'string') { %>
-                <img src="/images/<%= article.images[imgs] %>.jpeg" alt="image <%= imgs %>">
-                <% imgs++ %>
-              <% } else { %>
-                <img src="/images<%= article.images %>.jpeg" alt="image">
-              <% } %>
-              <% break; %>
-          <% } %>
-        <% }) %>
-      <% } %>
-
+      <% }) %>
     </article>
     <% include partials/footer %>
   </body>
