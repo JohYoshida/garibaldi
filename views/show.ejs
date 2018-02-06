@@ -29,7 +29,9 @@
             <% paras++ %>
             <% break; %>
           <% case "i": %>
-            <img src="/images/<%= article.images[imgs] %>.jpeg" alt="image <%= imgs %>">
+            <% if (article.images) { %>
+              <img src="/images/<%= article.images[imgs] %>" alt="image <%= imgs %>">
+            <% } %>
             <% imgs++ %>
             <% break; %>
         <% } %>
