@@ -43,7 +43,7 @@ function insertImage() {
       "<button class='remove-component' type='button'>Remove Image</button>"
     )
     .append(
-      "<input type='file' name='image_" + imageCount + "' placeholder='image'>"
+      "<input type='file' name='images' placeholder='image'>"
     )
     .append("<input type='hidden' name='component' value='i'>");
   imageCount++;
