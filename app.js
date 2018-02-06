@@ -24,7 +24,7 @@ const storage = multer.diskStorage({
     cb(null, Date.now() + path.extname(file.originalname)); //Appending extension
   }
 });
-const upload = multer({ dest: "public/images/", storage });
+const upload = multer({ dest: "dist/images/", storage });
 
 // Middleware
 app.use(express.static(path.join(__dirname, "./public")));
