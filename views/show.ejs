@@ -18,24 +18,26 @@
       <% var paras = 0 %>
       <% var imgs = 0 %>
       <h1><%= article.title %></h1>
-      <% article.components.forEach(function(el) { %>
-        <% switch(el) {
-          case "h": %>
-            <h2><%= article.headers[heads] %></h2>
-            <% heads++ %>
-            <% break; %>
-          <% case "p": %>
-            <p><%= article.paragraphs[paras] %></p>
-            <% paras++ %>
-            <% break; %>
-          <% case "i": %>
-            <% if (article.images) { %>
-              <img src="/images/<%= article.images[imgs] %>" alt="image <%= imgs %>">
-            <% } %>
-            <% imgs++ %>
-            <% break; %>
-        <% } %>
-      <% }) %>
+      <% if (article.components) { %>
+        <% article.components.forEach(function(el) { %>
+          <% switch(el) {
+            case "h": %>
+              <h2><%= article.headers[heads] %></h2>
+              <% heads++ %>
+              <% break; %>
+            <% case "p": %>
+              <p><%= article.paragraphs[paras] %></p>
+              <% paras++ %>
+              <% break; %>
+            <% case "i": %>
+              <% if (article.images) { %>
+                <img src="/images/<%= article.images[imgs] %>" alt="image <%= imgs %>">
+              <% } %>
+              <% imgs++ %>
+              <% break; %>
+          <% } %>
+        <% }) %>
+      <% } %>
     </article>
     <% include partials/footer %>
   </body>
