@@ -18,7 +18,7 @@ const ArticleHelpers = require("./lib/article-helpers");
 // Multer setup
 const storage = multer.diskStorage({
   destination: function(req, file, cb) {
-    cb(null, "public/images/");
+    cb(null, "dist/images/");
   },
   filename: function(req, file, cb) {
     cb(null, Date.now() + path.extname(file.originalname)); //Appending extension
