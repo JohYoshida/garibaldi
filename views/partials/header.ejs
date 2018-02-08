@@ -1,0 +1,22 @@
+<nav class="row">
+  <div class="container">
+    <ul class="header">
+      <li>
+        <%# <a href="/">Home</a> %>
+        <a href="/">
+          <h1>Garibaldi</h1>
+        </a>
+      </li>
+      <li>
+        <a href="/new">New Article</a>
+      </li>
+    </ul>
+    <ul class="articles-list">
+      <% articles.forEach(function(article) { %>
+        <li>
+          <p><a href="/articles/<%= article.id %>"><%= article.title %></a></p>
+        </li>
+      <% }) %>
+    </ul>
+  </div>
+</nav>
