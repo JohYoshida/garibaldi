@@ -1,13 +1,16 @@
-form {
-  margin: 10px;
-  section {
-    margin: 10px 0px;;
-    input {
-      display: block;
-    }
-    textarea {
-      display: block;
-    }
+@import 'nav';
 
+html {
+  height: 100%;
+
+  body {
+    height: 100%;
+  }
+
+  main {
+    margin-top: 5%;
+    width: 70%;
+    display: inline-block;
+    float: right;
   }
 }

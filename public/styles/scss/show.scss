@@ -1,0 +1,10 @@
+form {
+  display: inline-block;
+}
+
+article {
+  margin: 30px;
+  img {
+    max-width: -webkit-fill-available;
+  }
+}

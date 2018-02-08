@@ -1,10 +1,44 @@
-form {
-  margin: 10px; }
-  form section {
-    margin: 10px 0px; }
-    form section input {
-      display: block; }
-    form section textarea {
-      display: block; }
+nav {
+  border-right: 1px solid #e1e2e3;
+  width: 29%;
+  height: 100%;
+  display: inline-block; }
+  nav div.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%; }
+    nav div.container a {
+      text-decoration: none;
+      text-align: center; }
+    nav div.container ul {
+      flex: 1;
+      list-style: none; }
+    nav div.container ul.header {
+      margin: 0;
+      padding: 16px 0;
+      text-align: center;
+      border-bottom: 1px solid #e1e2e3; }
+      nav div.container ul.header li {
+        display: inline-block;
+        margin: 0;
+        padding: 0 5%; }
+        nav div.container ul.header li a {
+          text-decoration: none; }
+      nav div.container ul.header li + li {
+        border-left: 1px solid #e1e2e3; }
+    nav div.container ul.articles-list {
+      margin: 10px; }
+      nav div.container ul.articles-list li {
+        margin: 10px; }
+
+html {
+  height: 100%; }
+  html body {
+    height: 100%; }
+  html main {
+    margin-top: 5%;
+    width: 70%;
+    display: inline-block;
+    float: right; }
 
 /*# sourceMappingURL=main.css.map */

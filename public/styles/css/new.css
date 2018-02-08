@@ -1,0 +1,10 @@
+form {
+  margin: 10px; }
+  form section {
+    margin: 10px 0; }
+    form section input {
+      display: block; }
+    form section textarea {
+      display: block; }
+
+/*# sourceMappingURL=new.css.map */

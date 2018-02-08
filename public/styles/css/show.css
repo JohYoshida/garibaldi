@@ -1,0 +1,9 @@
+form {
+  display: inline-block; }
+
+article {
+  margin: 30px; }
+  article img {
+    max-width: -webkit-fill-available; }
+
+/*# sourceMappingURL=show.css.map */
