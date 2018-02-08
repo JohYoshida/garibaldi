@@ -18,16 +18,17 @@ const ArticleHelpers = require("./lib/article-helpers");
 // Multer setup
 const storage = multer.diskStorage({
   destination: function(req, file, cb) {
-    cb(null, "public/images/");
+    cb(null, `${process.env.UPLOADS}/images/`);
   },
   filename: function(req, file, cb) {
     cb(null, Date.now() + path.extname(file.originalname)); //Appending extension
   }
 });
-const upload = multer({ dest: "public/images/", storage });
+const upload = multer({ dest: `${process.env.UPLOADS}/images/`, storage });
 
 // Middleware
 app.use(express.static(path.join(__dirname, "./public")));
+app.use(express.static(path.join(__dirname, "./dist")));
 app.use(methodOverride("_method"));
 
 // View engine

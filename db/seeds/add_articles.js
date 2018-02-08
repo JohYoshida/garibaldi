@@ -19,7 +19,24 @@ exports.seed = function(knex, Promise) {
             "A proper article may have an image.",
             "The image may be surrounded by text."
           ]),
-          images: JSON.stringify(["alien.jpeg"])
+          images: JSON.stringify(["power.jpeg"])
+        },
+        {
+          id: uuid(),
+          title: "Hi Sophie!",
+          text: "",
+          created_at: new Date(),
+          components: JSON.stringify(["h", "p", "i", "p", "h", "p", "p", "p", "p"]),
+          headers: JSON.stringify(["A simple blog app", "To Do"]),
+          paragraphs: JSON.stringify([
+            "It's still pretty barebones, but you can now make articles with headers, paragraphs, and images, in any order or quantity you want.",
+            "Here's a picture of a very fat rat.",
+            "Styling! This website looks like an error page. I'm going to fix that when I feel like struggling with CSS. Let me know if you have any input (or stylesheets)!",
+            "I'm also hoping to make it so you can edit an article without having to start from scratch. Might be difficult with the janky system I built, but we'll see.",
+            "Let me know if there's anything else you want me to add!",
+            "Joh"
+          ]),
+          images: JSON.stringify(["power.jpeg"])
         },
         {
           id: uuid(),
