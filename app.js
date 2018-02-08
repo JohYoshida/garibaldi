@@ -41,7 +41,9 @@ app.get("/", (req, res) => {
 app.post("/", upload.any(), (req, res) => {
   ArticleHelpers.postArticle(req, res);
 });
-app.get("/new", (req, res) => res.render("new"));
+app.get("/new", (req, res) => {
+  ArticleHelpers.newArticle(res);
+});
 app.put("/articles/:id", (req, res) => {
   ArticleHelpers.editArticle(req.params.id, req.body, res);
 });
