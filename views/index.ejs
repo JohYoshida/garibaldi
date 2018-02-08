@@ -11,6 +11,9 @@
         <article class="">
           <h2><a href="/articles/<%= article.id %>"><%= article.title || "No Title"%></a></h2>
           <% if (article.components) { %>
+            <% if (article.headers) { %>
+              <h5><%= article.headers[0] %></h5>
+            <% } %>
             <% if (article.paragraphs) { %>
               <p><%= article.paragraphs[0] %></p>
             <% } %>
