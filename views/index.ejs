@@ -9,8 +9,12 @@
     <main>
       <% articles.forEach(function(article) { %>
         <article class="">
-          <h2><a href="/articles/<%= article.id %>"><%= article.title %></a></h2>
-          <p><%= article.text %></p>
+          <h2><a href="/articles/<%= article.id %>"><%= article.title || "No Title"%></a></h2>
+          <% if (article.components) { %>
+            <% if (article.paragraphs) { %>
+              <p><%= article.paragraphs[0] %></p>
+            <% } %>
+          <% } %>
         </article>
         <% }) %>
     </main>
