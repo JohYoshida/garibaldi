@@ -2,41 +2,42 @@
 <html>
   <head>
     <% include partials/head %>
+    <link rel="stylesheet" href="/styles/css/show.css" type="text/css"/>
   </head>
   <body>
     <% include partials/header %>
-    <a href="/">Index</a>
-    <a href="/new">New Article</a>
-    <form action="/articles/<%= article.id %>/edit">
-      <!-- <button type="submit" name="button">Edit Article</button> -->
-    </form>
-    <form method="POST" action="/articles/<%= article.id %>?_method=DELETE">
-      <button type="submit">Delete Article</button>
-    </form>
-    <article>
-      <% var heads = 0 %>
-      <% var paras = 0 %>
-      <% var imgs = 0 %>
-      <h1><%= article.title %></h1>
-      <% article.components.forEach(function(el) { %>
-        <% switch(el) {
-          case "h": %>
-            <h2><%= article.headers[heads] %></h2>
-            <% heads++ %>
-            <% break; %>
-          <% case "p": %>
-            <p><%= article.paragraphs[paras] %></p>
-            <% paras++ %>
-            <% break; %>
-          <% case "i": %>
-            <% if (article.images) { %>
-              <img src="/images/<%= article.images[imgs] %>" alt="image <%= imgs %>">
-            <% } %>
-            <% imgs++ %>
-            <% break; %>
-        <% } %>
-      <% }) %>
-    </article>
+    <main>
+      <form action="/articles/<%= article.id %>/edit">
+        <button type="submit" name="button">Edit Article</button>
+      </form>
+      <form method="POST" action="/articles/<%= article.id %>?_method=DELETE">
+        <button type="submit">Delete Article</button>
+      </form>
+      <article>
+        <% var heads = 0 %>
+        <% var paras = 0 %>
+        <% var imgs = 0 %>
+        <h2><%= article.title %></h2>
+        <% article.components.forEach(function(el) { %>
+          <% switch(el) {
+            case "h": %>
+              <h3><%= article.headers[heads] %></h3>
+              <% heads++ %>
+              <% break; %>
+            <% case "p": %>
+              <p><%= article.paragraphs[paras] %></p>
+              <% paras++ %>
+              <% break; %>
+            <% case "i": %>
+              <% if (article.images) { %>
+                <img src="/images/<%= article.images[imgs] %>" alt="image <%= imgs %>">
+              <% } %>
+              <% imgs++ %>
+              <% break; %>
+          <% } %>
+        <% }) %>
+      </article>
+    </main>
     <% include partials/footer %>
   </body>
 </html>
