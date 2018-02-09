@@ -1,10 +1,23 @@
+section.article-buttons {
+  box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px 0 rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+  margin: 10px;
+  padding: 10px; }
+
 form {
+  box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px 0 rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+  margin: 10px;
+  padding: 10px;
   margin: 10px; }
   form section {
+    box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px 0 rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+    margin: 10px;
+    padding: 10px;
     margin: 10px 0; }
     form section input {
       display: block; }
     form section textarea {
       display: block; }
+  form input.article-submit {
+    margin-top: 10px; }
 
 /*# sourceMappingURL=new.css.map */

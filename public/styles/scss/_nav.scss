@@ -1,3 +1,5 @@
+@import 'mixins';
+
 $border: #e1e2e3;
 
 nav {
@@ -14,7 +16,6 @@ nav {
     width: 100%;
     // margin-bottom: -5000px;
     // padding-bottom: 5000px;
-
     a {
       text-decoration: none;
       text-align: center;
@@ -50,7 +51,12 @@ nav {
       margin: 10px;
 
       li {
+        @include box-shadow();
         margin: 10px;
+
+        p {
+          margin: 0;
+        }
       }
     }
   }

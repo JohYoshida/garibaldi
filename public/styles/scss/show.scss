@@ -1,10 +1,22 @@
-form {
-  display: inline-block;
+@import 'mixins';
+
+section.article-buttons {
+  @include box-shadow();
+
+  form {
+    display: inline-block;
+    // width: 49%;
+    // margin: 0 0 0 15%;
+    margin-bottom: 0;
+  }
 }
 
 article {
-  margin: 30px;
+  // margin: 30px;
+  @include box-shadow();
+
   img {
     max-width: -webkit-fill-available;
+    margin: 1em;
   }
 }

@@ -1,7 +1,15 @@
+@import 'mixins';
+
+section.article-buttons {
+  @include box-shadow();
+}
+
 form {
+  @include box-shadow();
   margin: 10px;
 
   section {
+    @include box-shadow();
     margin: 10px 0;
 
     input {
@@ -11,5 +19,9 @@ form {
     textarea {
       display: block;
     }
+  }
+
+  input.article-submit {
+    margin-top: 10px;
   }
 }

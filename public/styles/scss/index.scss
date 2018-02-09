@@ -1,6 +1,7 @@
+@import 'mixins';
+
 article {
-  width: 95%;
-  float: right;
+  @include box-shadow();
 
   h2 {
     margin-bottom: 10px;
