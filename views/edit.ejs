@@ -2,19 +2,67 @@
 <html>
   <head>
     <% include partials/head %>
+    <link rel="stylesheet" href="/styles/css/edit.css" type="text/css"/>
   </head>
   <body>
     <% include partials/header %>
     <main>
       <h2>Edit Article</h2>
-      <form action="/articles/<%= article.id %>?_method=PUT" method="post">
+      <section class="article-buttons">
+        <button class="add-header" type="button" name="button">Add Header</button>
+        <button class="add-paragraph" type="button" name="button">Add Paragraph</button>
+        <button class="add-image" type="button" name="button">Add Image</button>
+      </section>
+      <form class="article-form" action="/articles/<%= article.id %>?_method=PUT" method="post" enctype="multipart/form-data">
         <label for="title">Title</label>
-        <input type="text" name="title" value="<%= article.title %>">
-        <label for="text">Body</label>
-        <textarea name="text" rows="8" cols="80"><%= article.text %></textarea>
-        <input type="submit" name="submit" value="Submit Article">
+        <input class="article-title" type="text" name="title" value="<%= article.title %>">
+        <p class="tip">tip: you can drag and drop to reorder components</p>
+        <div class="alert"></div>
+        <!-- Article components are rendered here -->
+        <div id="components">
+          <% var heads = 0 %>
+          <% var paras = 0 %>
+          <% var imgs = 0 %>
+          <% if (article.components) { %>
+            <% article.components.forEach(function(el) { %>
+              <% switch(el) {
+                case "h": %>
+                  <section>
+                    <input type='text' name='header' value="<%= article.headers[heads] %>">
+                    <input type='hidden' name='component' value='h'>
+                    <button class='remove' type='button'>Remove Header</button>
+                  </section>
+                  <% heads++ %>
+                  <% break; %>
+                <% case "p": %>
+                  <section>
+                    <textarea name='paragraph' rows='8' cols='80'><%= article.paragraphs[paras] %></textarea>
+                    <input type='hidden' name='component' value='p'>
+                    <button class='remove' type='button'>Remove Paragraph</button>
+                  </section>
+                  <% paras++ %>
+                  <% break; %>
+                <% case "i": %>
+                  <% if (article.images) { %>
+                    <section>
+                      <input type='file' name='images'>
+                      <input type='hidden' name='component' value='i'>
+                      <button class='remove' type='button'>Remove Image</button>
+                    </section>
+                  <% } %>
+                  <% imgs++ %>
+                  <% break; %>
+              <% } %>
+            <% }) %>
+          <% } %>
+        </div>
+        <input class="article-submit" type="submit" name="submit" value="Submit Article">
       </form>
     </main>
     <% include partials/footer %>
+    <!-- Scripts -->
+    <script src='https://rawgit.com/bevacqua/dragula/master/dist/dragula.js'></script>
+    <script type="text/javascript" src="/scripts/dragula.js"></script>
+    <script type="text/javascript" src="/scripts/add-article-components.js"></script>
   </body>
 </html>
