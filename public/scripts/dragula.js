@@ -1,0 +1,1 @@
+dragula([document.querySelector('#components')]);
