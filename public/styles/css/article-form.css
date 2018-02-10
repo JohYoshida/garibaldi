@@ -41,6 +41,7 @@ form.article-form {
       background-color: white;
       margin-top: 1rem; }
   form.article-form input.article-submit {
+    display: block;
     margin-top: 10px; }
 
 /*# sourceMappingURL=article-form.css.map */
