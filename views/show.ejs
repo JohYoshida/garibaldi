@@ -7,6 +7,7 @@
   <body>
     <% include partials/header %>
     <main>
+      <!-- Buttons -->
       <section class="article-buttons">
         <form action="/articles/<%= article.id %>/edit">
           <button type="submit" name="button">Edit Article</button>
@@ -15,22 +16,27 @@
           <button type="submit">Delete Article</button>
         </form>
       </section>
+      <!-- Article -->
       <article>
         <% var heads = 0 %>
         <% var paras = 0 %>
         <% var imgs = 0 %>
         <h2><%= article.title %></h2>
         <% if (article.components) { %>
+          <%# Render article components %>
           <% article.components.forEach(function(el) { %>
             <% switch(el) {
+              // Headers
               case "h": %>
                 <h3><%= article.headers[heads] %></h3>
                 <% heads++ %>
                 <% break; %>
+                // Paragraphs
               <% case "p": %>
                 <p><%= article.paragraphs[paras] %></p>
                 <% paras++ %>
                 <% break; %>
+                // Images
               <% case "i": %>
                 <% if (article.images) { %>
                   <img src="/images/<%= article.images[imgs] %>" alt="image <%= imgs %>">
