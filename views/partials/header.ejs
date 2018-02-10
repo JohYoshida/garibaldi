@@ -15,7 +15,7 @@
         <li>
           <p>
             <a href="/articles/<%= article.id %>">
-              <%= article.title %>
+              <%= article.title || "untitled"%>
             </a>
           </p>
           <% if (article.updated_at) { %>

@@ -9,7 +9,7 @@
     <main>
       <% articles.forEach(function(article) { %>
         <article>
-          <h2><a href="/articles/<%= article.id %>"><%= article.title || "No Title"%></a></h2>
+          <h2><a href="/articles/<%= article.id %>"><%= article.title || "untitled"%></a></h2>
           <% if (article.components) { %>
             <% if (article.headers) { %>
               <h5><%= article.headers[0] %></h5>
