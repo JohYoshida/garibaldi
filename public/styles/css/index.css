@@ -4,6 +4,8 @@ article {
   padding: 10px; }
   article h2 {
     margin-bottom: 10px; }
+    article h2 a {
+      text-decoration: none; }
   article h5 {
     margin: 0; }
   article p {
