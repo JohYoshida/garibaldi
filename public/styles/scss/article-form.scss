@@ -4,7 +4,7 @@ section.article-buttons {
   @include box-shadow();
 }
 
-form {
+form.article-form {
   @include box-shadow();
   margin: 10px;
 
@@ -16,8 +16,23 @@ form {
     display: inline-block;
     color: grey;
   }
-  div#components {
 
+  div.divider {
+    background-color: #d1d1d1;
+    height: 1px;
+  }
+
+  div.alert {
+    display: inline-block;
+    border: 1px solid #dba02d;
+    border-radius: 3px;
+    background-color: #ecea73;
+    margin-top: 1rem;
+    
+    p {
+      margin: 0;
+      padding: 5px 10px;
+    }
   }
 
   section {

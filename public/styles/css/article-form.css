@@ -3,32 +3,44 @@ section.article-buttons {
   margin: 10px;
   padding: 10px; }
 
-form {
+form.article-form {
   box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px 0 rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
   margin: 10px;
   padding: 10px;
   margin: 10px; }
-  form input.article-title {
+  form.article-form input.article-title {
     display: inline-block; }
-  form p.tip {
+  form.article-form p.tip {
     display: inline-block;
     color: grey; }
-  form section {
+  form.article-form div.divider {
+    background-color: #d1d1d1;
+    height: 1px; }
+  form.article-form div.alert {
+    display: inline-block;
+    border: 1px solid #dba02d;
+    border-radius: 3px;
+    background-color: #ecea73;
+    margin-top: 1rem; }
+    form.article-form div.alert p {
+      margin: 0;
+      padding: 5px 10px; }
+  form.article-form section {
     box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px 0 rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
     margin: 10px;
     padding: 10px;
     background-color: #eaedf0;
     margin: 10px 0; }
-    form section input {
+    form.article-form section input {
       display: block; }
-    form section textarea {
+    form.article-form section textarea {
       display: block;
       background-color: white;
       max-width: -webkit-fill-available; }
-    form section button.remove {
+    form.article-form section button.remove {
       background-color: white;
       margin-top: 1rem; }
-  form input.article-submit {
+  form.article-form input.article-submit {
     margin-top: 10px; }
 
 /*# sourceMappingURL=article-form.css.map */
