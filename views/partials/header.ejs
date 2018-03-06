@@ -31,7 +31,7 @@
     </ul>
     <ul class="articles-list">
       <section>
-        <% if (userArticles) { %>
+        <% if (userArticles && userArticles.length > 0) { %>
           <h5>My Articles</h5>
           <% userArticles.forEach(function(article) { %>
             <li>
@@ -66,7 +66,7 @@
         <% } %>
       </section>
       <section>
-        <% if (publicArticles) { %>
+        <% if (publicArticles  && publicArticles.length > 0) { %>
           <h5>Public Articles</h5>
           <% publicArticles.forEach(function(article) { %>
             <li>
