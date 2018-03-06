@@ -8,72 +8,79 @@
     <% include partials/header %>
     <main>
       <h2>Edit Article</h2>
-      <!-- Buttons -->
-      <section class="article-buttons">
-        <button class="add-header" type="button" name="button">Add Header</button>
-        <button class="add-paragraph" type="button" name="button">Add Paragraph</button>
-        <button class="add-image" type="button" name="button">Add Image</button>
-      </section>
-      <!-- Article Form -->
-      <form class="article-form" action="/articles/<%= article.id %>?_method=PUT" method="post" enctype="multipart/form-data">
-        <label for="title">Title</label>
-        <input class="article-title" type="text" name="title" value="<%= article.title %>">
-        <label for="private">Private</label>
-        <% if (article.is_private) { %>
-          <input type="checkbox" name="private" checked>
-        <% } else { %>
-          <input type="checkbox" name="private">
-        <% } %>
-        <div class="divider"></div>
-        <p class="tip">tip: you can drag and drop to reorder components</p>
-        <!-- Article components are rendered here -->
-        <div id="components">
-          <%# Declare counters %>
-          <% var heads = 0 %>
-          <% var paras = 0 %>
-          <% var imgs = 0 %>
-          <%# Render components %>
-          <% if (article.components) { %>
-            <% article.components.forEach(function(el) { %>
-              <% switch(el) {
-                // Render header
-                case "h": %>
-                  <section>
-                    <input type='text' name='header' value="<%= article.headers[heads] %>">
-                    <input type='hidden' name='component' value='h'>
-                    <button class='remove' type='button'>Remove Header</button>
-                  </section>
-                  <% heads++ %>
-                  <% break; %>
-                // Render paragraph
-                <% case "p": %>
-                  <section>
-                    <textarea name='paragraph' rows='8' cols='80'><%= article.paragraphs[paras] %></textarea>
-                    <input type='hidden' name='component' value='p'>
-                    <button class='remove' type='button'>Remove Paragraph</button>
-                  </section>
-                  <% paras++ %>
-                  <% break; %>
-                // Render image
-                <% case "i": %>
-                  <% if (article.images) { %>
-                    <section>
-                      <input type='file' name='images'>
-                      <input type='hidden' name='component' value='i'>
-                      <button class='remove' type='button'>Remove Image</button>
-                    </section>
-                  <% } %>
-                  <% imgs++ %>
-                  <% break; %>
-              <% } %>
-            <% }) %>
+      <% if (cookies.user !== article.user_id) { %>
+        <section>
+          <p>You do not have permission to edit this article!</p>
+        </section>
+      <% } else { %>
+        <!-- Buttons -->
+        <section class="article-buttons">
+          <button class="add-header" type="button" name="button">Add Header</button>
+          <button class="add-paragraph" type="button" name="button">Add Paragraph</button>
+          <button class="add-image" type="button" name="button">Add Image</button>
+        </section>
+        <!-- Article Form -->
+        <form class="article-form" action="/articles/<%= article.id %>?_method=PUT" method="post" enctype="multipart/form-data">
+          <input type="hidden" name="user_id" value="<%= article.user_id %>">
+          <label for="title">Title</label>
+          <input class="article-title" type="text" name="title" value="<%= article.title %>">
+          <label for="private">Private</label>
+          <% if (article.is_private) { %>
+            <input type="checkbox" name="private" checked>
+          <% } else { %>
+            <input type="checkbox" name="private">
           <% } %>
-        </div>
-        <!-- Alerts appear here -->
-        <div class="alert"></div>
-        <!-- Submit form -->
-        <input class="article-submit" type="submit" name="submit" value="Submit Article">
-      </form>
+          <div class="divider"></div>
+          <p class="tip">tip: you can drag and drop to reorder components</p>
+          <!-- Article components are rendered here -->
+          <div id="components">
+            <%# Declare counters %>
+            <% var heads = 0 %>
+            <% var paras = 0 %>
+            <% var imgs = 0 %>
+            <%# Render components %>
+            <% if (article.components) { %>
+              <% article.components.forEach(function(el) { %>
+                <% switch(el) {
+                  // Render header
+                  case "h": %>
+                    <section>
+                      <input type='text' name='header' value="<%= article.headers[heads] %>">
+                      <input type='hidden' name='component' value='h'>
+                      <button class='remove' type='button'>Remove Header</button>
+                    </section>
+                    <% heads++ %>
+                    <% break; %>
+                  // Render paragraph
+                  <% case "p": %>
+                    <section>
+                      <textarea name='paragraph' rows='8' cols='80'><%= article.paragraphs[paras] %></textarea>
+                      <input type='hidden' name='component' value='p'>
+                      <button class='remove' type='button'>Remove Paragraph</button>
+                    </section>
+                    <% paras++ %>
+                    <% break; %>
+                  // Render image
+                  <% case "i": %>
+                    <% if (article.images) { %>
+                      <section>
+                        <input type='file' name='images'>
+                        <input type='hidden' name='component' value='i'>
+                        <button class='remove' type='button'>Remove Image</button>
+                      </section>
+                    <% } %>
+                    <% imgs++ %>
+                    <% break; %>
+                <% } %>
+              <% }) %>
+            <% } %>
+          </div>
+          <!-- Alerts appear here -->
+          <div class="alert"></div>
+          <!-- Submit form -->
+          <input class="article-submit" type="submit" name="submit" value="Submit Article">
+        </form>
+      <% }%>
     </main>
     <!-- Scripts -->
     <script src='https://rawgit.com/bevacqua/dragula/master/dist/dragula.js'></script>
