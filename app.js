@@ -56,6 +56,7 @@ app.get("/", (req, res) => {
 app.post("/", upload.any(), (req, res) => {
   ArticleHelpers.postArticle(req, res);
 });
+// User registration routes
 app.get("/register", (req, res) => {
   res.render("register");
 });
@@ -84,6 +85,11 @@ app.post("/register", (req, res) => {
         res.redirect("/");
       }
     });
+});
+app.post("/logout", (req, res) => {
+  req.session.isLoggedIn = false;
+  req.session.user = null;
+  res.redirect("/");
 });
 // Article routes
 app.get("/new", (req, res) => {
