@@ -18,6 +18,8 @@ const knex = require("knex")(dbconfig);
 
 // Functions
 const articleHelpers = require("./lib/article-helpers");
+const loginUser = require("./lib/login-user");
+const registerUser = require("./lib/register-user");
 
 // Routes
 const articleRoutes = require("./routes/article-routes");
@@ -58,33 +60,7 @@ app.get("/", articleHelpers.getArticles);
 // Register
 app.route("/register")
   .get((req, res) => res.render("register"))
-  .post((req, res) => {
-    // Check for existing users with that username
-    knex("users")
-      .where({ username: req.body.username })
-      .then(users => {
-        if (users.length === 0) {
-          // Add user to database
-          console.log(`Adding user ${req.body.username} to database`);
-          knex("users")
-            .insert({
-              username: req.body.username,
-              // TODO: bcrypt password
-              password: req.body.password
-            })
-            .then(() => {
-              // Login
-              req.session.user = req.body.username;
-              req.session.isLoggedIn = true;
-              res.redirect("/");
-            });
-        } else {
-          // TODO: error handling
-          console.log("That username is taken!");
-          res.redirect("/");
-        }
-      });
-  });
+  .post(registerUser);
 // Login
 app.route("/login")
   .get((req, res) => {
