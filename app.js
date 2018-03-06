@@ -24,7 +24,6 @@ const registerUser = require("./lib/register-user");
 // Routes
 const articleRoutes = require("./routes/article-routes");
 
-// Middleware
 // Parse multipart/form-data forms
 const storage = multer.diskStorage({
   destination: function(req, file, cb) {
@@ -63,25 +62,8 @@ app.route("/register")
   .post(registerUser);
 // Login
 app.route("/login")
-  .get((req, res) => {
-    res.render("login");
-  })
-  .post((req, res) => {
-    // Lookup user
-    knex("users")
-      .where({ username: req.body.username })
-      .then(users => {
-        if (users.length === 1) {
-          // Login
-          req.session.user = req.body.username;
-          req.session.isLoggedIn = true;
-        } else {
-          // TODO: error handling
-          console.log(`${users.length} users with that name`);
-        }
-        res.redirect("/");
-      });
-  });
+  .get((req, res) => res.render("login"));
+  .post(loginUser);
 // Logout
 app.post("/logout", (req, res) => {
   req.session.isLoggedIn = false;
