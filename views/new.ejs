@@ -17,8 +17,10 @@
       <form class="article-form" action="/articles" method="post" enctype="multipart/form-data">
         <label for="title">Title</label>
         <input class="article-title" type="text" name="title" placeholder="title">
-        <p class="tip">tip: you can drag and drop to reorder components</p>
+        <label for="private">Private</label>
+        <input type="checkbox" name="private">
         <div class="divider"></div>
+        <p class="tip">tip: you can drag and drop to reorder components</p>
         <!-- Article components are rendered here -->
         <div id="components"></div>
         <!-- Alerts appear here -->

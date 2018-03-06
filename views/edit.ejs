@@ -18,8 +18,14 @@
       <form class="article-form" action="/articles/<%= article.id %>?_method=PUT" method="post" enctype="multipart/form-data">
         <label for="title">Title</label>
         <input class="article-title" type="text" name="title" value="<%= article.title %>">
-        <p class="tip">tip: you can drag and drop to reorder components</p>
+        <label for="private">Private</label>
+        <% if (article.is_private) { %>
+          <input type="checkbox" name="private" checked>
+        <% } else { %>
+          <input type="checkbox" name="private">
+        <% } %>
         <div class="divider"></div>
+        <p class="tip">tip: you can drag and drop to reorder components</p>
         <!-- Article components are rendered here -->
         <div id="components">
           <%# Declare counters %>
