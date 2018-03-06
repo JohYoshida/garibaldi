@@ -9,8 +9,10 @@ exports.seed = function(knex, Promise) {
       return knex("articles").insert([
         {
           id: uuid(),
+          user_id: "Joh",
           title: "A Proper Article",
           text: "This is what an article will look like.",
+          is_private: 0,
           created_at: new Date(),
           components: JSON.stringify(["h", "p", "h", "p", "i", "p"]),
           headers: JSON.stringify(["Headers", "Images"]),
@@ -23,8 +25,10 @@ exports.seed = function(knex, Promise) {
         },
         {
           id: uuid(),
+          user_id: "Joh",
           title: "Hi Sophie!",
           text: "",
+          is_private: 0,
           created_at: new Date(),
           components: JSON.stringify(["h", "p", "i", "p", "h", "p", "p", "p", "p"]),
           headers: JSON.stringify(["A simple blog app", "To Do"]),
@@ -40,9 +44,19 @@ exports.seed = function(knex, Promise) {
         },
         {
           id: uuid(),
-          title: "Old Article",
-          text: "This is what an old article will look like.",
-          created_at: new Date()
+          user_id: "Joh",
+          title: "A Private Article",
+          text: "This is what an article will look like.",
+          is_private: 1,
+          created_at: new Date(),
+          components: JSON.stringify(["h", "p", "h", "p", "i", "p"]),
+          headers: JSON.stringify(["Headers", "Images"]),
+          paragraphs: JSON.stringify([
+            "A proper article should have a header.",
+            "A proper article may have an image.",
+            "The image may be surrounded by text."
+          ]),
+          images: JSON.stringify(["power.jpeg"])
         }
       ]);
     });
