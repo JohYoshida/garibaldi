@@ -8,19 +8,38 @@
     <% include partials/header %>
     <main>
       <!-- Render articles -->
-      <% articles.forEach(function(article) { %>
-        <article>
-          <h2><a href="/articles/<%= article.id %>"><%= article.title || "untitled" %></a></h2>
-          <% if (article.components) { %>
-            <% if (article.headers) { %>
-              <h5><%= article.headers[0] %></h5>
+      <section>
+        <h2>My Articles</h2>
+        <% userArticles.forEach(function(article) { %>
+          <article>
+            <h3><a href="/articles/<%= article.id %>"><%= article.title || "untitled" %></a></h3>
+            <% if (article.components) { %>
+              <% if (article.headers) { %>
+                <h5><%= article.headers[0] %></h5>
+              <% } %>
+              <% if (article.paragraphs) { %>
+                <p><%= article.paragraphs[0] %></p>
+              <% } %>
             <% } %>
-            <% if (article.paragraphs) { %>
-              <p><%= article.paragraphs[0] %></p>
+          </article>
+          <% }) %>
+      </section>
+      <section>
+        <h2>Public Articles</h2>
+        <% publicArticles.forEach(function(article) { %>
+          <article>
+            <h3><a href="/articles/<%= article.id %>"><%= article.title || "untitled" %></a></h3>
+            <% if (article.components) { %>
+              <% if (article.headers) { %>
+                <h5><%= article.headers[0] %></h5>
+              <% } %>
+              <% if (article.paragraphs) { %>
+                <p><%= article.paragraphs[0] %></p>
+              <% } %>
             <% } %>
-          <% } %>
-        </article>
-        <% }) %>
+          </article>
+          <% }) %>
+      </section>
     </main>
   </body>
 </html>
