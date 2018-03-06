@@ -91,6 +91,9 @@ app.post("/logout", (req, res) => {
   req.session.user = null;
   res.redirect("/");
 });
+app.get("/login", (req, res) => {
+  res.render("login");
+});
 // Article routes
 app.get("/new", (req, res) => {
   ArticleHelpers.newArticle(res);
