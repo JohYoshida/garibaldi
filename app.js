@@ -56,6 +56,9 @@ app.get("/", (req, res) => {
 app.post("/", upload.any(), (req, res) => {
   ArticleHelpers.postArticle(req, res);
 });
+app.get("/register", (req, res) => {
+  res.render("register");
+});
 app.get("/new", (req, res) => {
   ArticleHelpers.newArticle(res);
 });
