@@ -17,7 +17,10 @@ const dbconfig = require("./knexfile.js")[process.env.DB_ENV];
 const knex = require("knex")(dbconfig);
 
 // Functions
-const ArticleHelpers = require("./lib/article-helpers");
+const articleHelpers = require("./lib/article-helpers");
+
+// Routes
+const articleRoutes = require("./routes/article-routes");
 
 // Middleware
 // Parse multipart/form-data forms
@@ -50,17 +53,11 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
 // Routes
-app.get("/", (req, res) => {
-  ArticleHelpers.getAllArticles(res, req.session);
-});
-app.post("/", upload.any(), (req, res) => {
-  ArticleHelpers.postArticle(req, res);
-});
+app.use("/articles", articleRoutes);
+app.get("/", articleHelpers.getArticles);
 // Register
 app.route("/register")
-  .get((req, res) => {
-    res.render("register");
-  })
+  .get((req, res) => res.render("register"))
   .post((req, res) => {
     // Check for existing users with that username
     knex("users")
@@ -114,22 +111,6 @@ app.post("/logout", (req, res) => {
   req.session.isLoggedIn = false;
   req.session.user = null;
   res.redirect("/");
-});
-// Article routes
-app.get("/new", (req, res) => {
-  ArticleHelpers.newArticle(res);
-});
-app.put("/articles/:id", upload.any(), (req, res) => {
-  ArticleHelpers.editArticle(req, res);
-});
-app.get("/articles/:id", (req, res) => {
-  ArticleHelpers.getOneAricle(req.params.id, res, "show");
-});
-app.delete("/articles/:id", (req, res) => {
-  ArticleHelpers.deleteArticle(req.params.id, res);
-});
-app.get("/articles/:id/edit", (req, res) => {
-  ArticleHelpers.getOneAricle(req.params.id, res, "edit");
 });
 
 // Start server
