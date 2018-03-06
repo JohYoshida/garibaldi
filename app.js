@@ -62,7 +62,7 @@ app.route("/register")
   .post(registerUser);
 // Login
 app.route("/login")
-  .get((req, res) => res.render("login"));
+  .get((req, res) => res.render("login"))
   .post(loginUser);
 // Logout
 app.post("/logout", (req, res) => {
