@@ -15,6 +15,7 @@ exports.up = function(knex, Promise) {
       table.jsonb("images");
     }),
     knex.schema.createTable("users", table => {
+      table.increments("id").primary();
       table.string("username");
       table.string("password");
     })
