@@ -28,13 +28,23 @@ nav {
         border-left: 1px solid #e1e2e3; }
     nav div.container ul.articles-list {
       margin: 10px; }
-      nav div.container ul.articles-list li {
+      nav div.container ul.articles-list section h5 {
+        margin: 0; }
+      nav div.container ul.articles-list section li {
         box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px 0 rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
         margin: 10px;
         padding: 10px;
         margin: 10px; }
-        nav div.container ul.articles-list li p {
+        nav div.container ul.articles-list section li p {
           margin: 0; }
+        nav div.container ul.articles-list section li span.public {
+          float: right;
+          text-transform: uppercase;
+          background: red;
+          color: white;
+          padding: 1px 10px;
+          border-radius: 5px;
+          font-size: 0.8em; }
 
 html {
   height: 100%; }

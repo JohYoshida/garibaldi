@@ -47,13 +47,26 @@ nav {
 
     ul.articles-list {
       margin: 10px;
-
-      li {
-        @include box-shadow();
-        margin: 10px;
-
-        p {
+      section {
+        h5 {
           margin: 0;
+        }
+        li {
+          @include box-shadow();
+          margin: 10px;
+
+          p {
+            margin: 0;
+          }
+          span.public {
+            float: right;
+            text-transform: uppercase;
+            background: red;
+            color: white;
+            padding: 1px 10px;
+            border-radius: 5px;
+            font-size: 0.8em;
+          }
         }
       }
     }
