@@ -94,6 +94,22 @@ app.post("/logout", (req, res) => {
 app.get("/login", (req, res) => {
   res.render("login");
 });
+app.post("/login", (req, res) => {
+  // Lookup user
+  knex("users")
+    .where({ username: req.body.username })
+    .then(users => {
+      if (users.length === 1) {
+        // Login
+        req.session.user = req.body.username;
+        req.session.isLoggedIn = true;
+      } else {
+        // TODO: error handling
+        console.log(`${users.length} users with that name`);
+      }
+      res.redirect("/");
+    });
+});
 // Article routes
 app.get("/new", (req, res) => {
   ArticleHelpers.newArticle(res);
