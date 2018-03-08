@@ -67,7 +67,7 @@ app.route("/login")
 // Logout
 app.post("/logout", (req, res) => {
   req.session.isLoggedIn = false;
-  req.session.user = null;
+  req.session.user = "";
   res.redirect("/");
 });
 
