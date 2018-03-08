@@ -9,7 +9,7 @@ exports.seed = function(knex, Promise) {
       return knex("articles").insert([
         {
           id: uuid(),
-          user_id: "Joh",
+          user_id: "admin",
           title: "A Proper Article",
           text: "This is what an article will look like.",
           is_private: 0,
@@ -25,7 +25,7 @@ exports.seed = function(knex, Promise) {
         },
         {
           id: uuid(),
-          user_id: "Joh",
+          user_id: "admin",
           title: "Hi Sophie!",
           text: "",
           is_private: 0,
@@ -44,7 +44,7 @@ exports.seed = function(knex, Promise) {
         },
         {
           id: uuid(),
-          user_id: "Joh",
+          user_id: "admin",
           title: "A Private Article",
           text: "This is what an article will look like.",
           is_private: 1,
