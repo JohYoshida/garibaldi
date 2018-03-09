@@ -8,7 +8,7 @@
     <% include partials/header %>
     <main>
       <h2>Edit Article</h2>
-      <% if (cookies.user !== article.user_id) { %>
+      <% if (user !== article.user_id) { %>
         <section>
           <p>You do not have permission to edit this article!</p>
         </section>

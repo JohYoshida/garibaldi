@@ -1,10 +1,10 @@
 <nav class="row">
   <div class="container">
     <ul class="header">
-      <% if (cookies.isLoggedIn) { %>
+      <% if (isLoggedIn) { %>
         <li>
           <a href="/">
-            <h1><%= cookies.user %></h1>
+            <h1><%= user %></h1>
           </a>
         </li>
         <li>

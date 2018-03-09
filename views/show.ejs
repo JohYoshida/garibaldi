@@ -8,7 +8,7 @@
     <% include partials/header %>
     <main>
       <!-- Buttons -->
-      <% if (cookies.user === article.user_id) { %>
+      <% if (user === article.user_id) { %>
         <section class="article-buttons">
           <form action="/articles/<%= article.id %>/edit">
             <button type="submit" name="button">Edit Article</button>
