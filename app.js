@@ -17,7 +17,7 @@ const dbconfig = require("./knexfile.js")[process.env.DB_ENV];
 const knex = require("knex")(dbconfig);
 
 // Functions
-const {getArticles} = require("./lib/article-helpers");
+const { getArticles } = require("./lib/article-helpers");
 const loginUser = require("./lib/login-user");
 const registerUser = require("./lib/register-user");
 
