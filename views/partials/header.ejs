@@ -21,14 +21,37 @@
             <h1>Garibaldi</h1>
           </a>
         </li>
-        <li>
-          <a href="/login">Login</a>
-        </li>
-        <li>
-          <a href="/register">Register</a>
-        </li>
+        <li id="login">Login</li>
+        <li id="register">Register</li>
       <% } %>
     </ul>
+
+    <div class="user-form">
+      <!-- Login/Register form appears here -->
+      <form id="login-form" action="/login" method="post">
+        <label for="username">Login as</label>
+        <input class="username" type="text" name="username">
+        <label for="password">Password</label>
+        <input class="password" type="password" name="password">
+        <button class="user-submit" type="submit">Login</button>
+      </form>
+      <form id="register-form" action="/register" method="post">
+        <label for="username">Register as</label>
+        <input class="username" type="text" name="username">
+        <label for="password">Password</label>
+        <input class="password" type="password" name="password">
+        <button class="user-submit" type="submit">Register</button>
+      </form>
+      <div class="warnings">
+        <div class="warning username-field">
+          Username field is required!
+        </div>
+        <div class="warning password-field">
+          Password field is required!
+        </div>
+      </div>
+    </div>
+
     <ul class="articles-list">
       <section>
         <% if (userArticles && userArticles.length > 0) { %>
@@ -97,3 +120,4 @@
     </ul>
   </div>
 </nav>
+<script type="text/javascript" src="../scripts/user-auth-form.js"></script>
