@@ -63,7 +63,7 @@ nav {
         margin: 10px; }
         nav div.container ul.articles-list section li p {
           margin: 0; }
-        nav div.container ul.articles-list section li title span.public {
+        nav div.container ul.articles-list section li span.public {
           float: right;
           text-transform: uppercase;
           background: red;
