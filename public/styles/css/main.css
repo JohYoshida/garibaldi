@@ -23,9 +23,11 @@ nav {
       nav div.container ul.header li {
         display: inline-block;
         margin: 0;
-        padding: 0 5%; }
-        nav div.container ul.header li a {
-          text-decoration: none; }
+        padding: 0 5%;
+        color: #1eaedb; }
+      nav div.container ul.header li:hover {
+        cursor: pointer;
+        color: #0fa0ce; }
       nav div.container ul.header li + li + li {
         border-left: 1px solid #e1e2e3; }
       nav div.container ul.header form {
@@ -33,9 +35,23 @@ nav {
         nav div.container ul.header form button {
           height: inherit;
           padding: inherit;
-          color: #0FA0CE;
+          color: #1eaedb;
           letter-spacing: inherit;
           border: inherit; }
+        nav div.container ul.header form button:hover {
+          color: #0fa0ce; }
+    nav div.container div.user-form {
+      margin: 10px; }
+      nav div.container div.user-form form {
+        display: none; }
+      nav div.container div.user-form div.warnings div.warning {
+        display: none;
+        box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px 0 rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+        border: 1px solid #dba02d;
+        border-radius: 3px;
+        background-color: #ecea73;
+        margin-top: 1rem;
+        padding: 5px 10px; }
     nav div.container ul.articles-list {
       margin: 10px; }
       nav div.container ul.articles-list section h5 {

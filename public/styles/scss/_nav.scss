@@ -1,5 +1,7 @@
 @import "mixins";
 $border: #e1e2e3;
+$link: #1eaedb;
+$link-hover: #0fa0ce;
 
 nav {
   // overflow: hidden;
@@ -38,10 +40,12 @@ nav {
         display: inline-block;
         margin: 0;
         padding: 0 5%;
+        color: $link;
+      }
 
-        a {
-          text-decoration: none;
-        }
+      li:hover {
+        cursor: pointer;
+        color: $link-hover;
       }
 
       li + li + li {
@@ -54,9 +58,28 @@ nav {
         button {
           height: inherit;
           padding: inherit;
-          color: #0FA0CE;
+          color: $link;
           letter-spacing: inherit;
           border: inherit;
+        }
+
+        button:hover {
+          color: $link-hover;
+        }
+      }
+    }
+
+    div.user-form {
+      margin: 10px;
+
+      form {
+        display: none;
+      }
+
+      div.warnings {
+        div.warning {
+          display: none;
+          @include alert();
         }
       }
     }
