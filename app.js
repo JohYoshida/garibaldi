@@ -17,7 +17,7 @@ const dbconfig = require("./knexfile.js")[process.env.DB_ENV];
 const knex = require("knex")(dbconfig);
 
 // Functions
-const articleHelpers = require("./lib/article-helpers");
+const {getArticles} = require("./lib/article-helpers");
 const loginUser = require("./lib/login-user");
 const registerUser = require("./lib/register-user");
 
@@ -53,18 +53,16 @@ app.use(
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
-// Routes
+// Bundled routes
 app.use("/articles", articleRoutes);
-app.get("/", articleHelpers.getArticles);
-// Register
+// Routes
+app.get("/", getArticles);
 app.route("/register")
   .get((req, res) => res.render("register"))
   .post(registerUser);
-// Login
 app.route("/login")
   .get((req, res) => res.render("login"))
   .post(loginUser);
-// Logout
 app.post("/logout", (req, res) => {
   req.session.isLoggedIn = false;
   req.session.user = "";
