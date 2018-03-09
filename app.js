@@ -57,12 +57,8 @@ app.set("view engine", "ejs");
 app.use("/articles", articleRoutes);
 // Routes
 app.get("/", getArticles);
-app.route("/register")
-  .get((req, res) => res.render("register"))
-  .post(registerUser);
-app.route("/login")
-  .get((req, res) => res.render("login"))
-  .post(loginUser);
+app.post("/register", registerUser);
+app.post("/login", loginUser);
 app.post("/logout", (req, res) => {
   req.session.isLoggedIn = false;
   req.session.user = "";
