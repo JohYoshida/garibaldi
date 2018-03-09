@@ -2,7 +2,7 @@
   <div class="container">
     <ul class="header">
       <% if (isLoggedIn) { %>
-        <li>
+        <li class="title">
           <a href="/">
             <h1><%= user %></h1>
           </a>
@@ -16,7 +16,7 @@
         </form>
         </li>
       <% } else { %>
-        <li>
+        <li class="title">
           <a href="/">
             <h1>Garibaldi</h1>
           </a>

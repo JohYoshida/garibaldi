@@ -1,5 +1,4 @@
-@import 'mixins';
-
+@import "mixins";
 $border: #e1e2e3;
 
 nav {
@@ -14,6 +13,7 @@ nav {
     display: flex;
     flex-direction: column;
     width: 100%;
+
     a {
       text-decoration: none;
       text-align: center;
@@ -30,6 +30,10 @@ nav {
       text-align: center;
       border-bottom: 1px solid $border;
 
+      li.title {
+        display: block;
+      }
+
       li {
         display: inline-block;
         margin: 0;
@@ -40,17 +44,31 @@ nav {
         }
       }
 
-      li+li {
+      li + li + li {
         border-left: 1px solid $border;
+      }
+
+      form {
+        margin: 0;
+
+        button {
+          height: inherit;
+          padding: inherit;
+          color: #0FA0CE;
+          letter-spacing: inherit;
+          border: inherit;
+        }
       }
     }
 
     ul.articles-list {
       margin: 10px;
+
       section {
         h5 {
           margin: 0;
         }
+
         li {
           @include box-shadow();
           margin: 10px;
@@ -58,7 +76,8 @@ nav {
           p {
             margin: 0;
           }
-          span.public {
+
+          title span.public {
             float: right;
             text-transform: uppercase;
             background: red;

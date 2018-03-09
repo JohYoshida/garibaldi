@@ -18,14 +18,24 @@ nav {
       padding: 16px 0;
       text-align: center;
       border-bottom: 1px solid #e1e2e3; }
+      nav div.container ul.header li.title {
+        display: block; }
       nav div.container ul.header li {
         display: inline-block;
         margin: 0;
         padding: 0 5%; }
         nav div.container ul.header li a {
           text-decoration: none; }
-      nav div.container ul.header li + li {
+      nav div.container ul.header li + li + li {
         border-left: 1px solid #e1e2e3; }
+      nav div.container ul.header form {
+        margin: 0; }
+        nav div.container ul.header form button {
+          height: inherit;
+          padding: inherit;
+          color: #0FA0CE;
+          letter-spacing: inherit;
+          border: inherit; }
     nav div.container ul.articles-list {
       margin: 10px; }
       nav div.container ul.articles-list section h5 {
@@ -37,7 +47,7 @@ nav {
         margin: 10px; }
         nav div.container ul.articles-list section li p {
           margin: 0; }
-        nav div.container ul.articles-list section li span.public {
+        nav div.container ul.articles-list section li title span.public {
           float: right;
           text-transform: uppercase;
           background: red;
