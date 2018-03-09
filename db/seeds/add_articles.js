@@ -33,7 +33,7 @@ exports.seed = function(knex, Promise) {
           components: JSON.stringify(["h", "p", "i", "p", "h", "p", "p", "p", "p"]),
           headers: JSON.stringify(["A simple blog app", "To Do"]),
           paragraphs: JSON.stringify([
-            "It's still pretty barebones, but you can now make articles with headers, paragraphs, and images, in any order or quantity you want.",
+            "It's still pretty barebones, but you can now make articles with headers, paragraphs, and images, in any order or quantity you want. Articles can be marked private, so only you can see them.",
             "Here's a picture of a very fat rat.",
             "Styling! This website looks like an error page. I'm going to fix that when I feel like struggling with CSS. Let me know if you have any input (or stylesheets)!",
             "I'm also hoping to make it so you can edit an article without having to start from scratch. Might be difficult with the janky system I built, but we'll see.",
