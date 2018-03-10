@@ -1,4 +1,6 @@
 const uuid = require("uuid/v1");
+const bcrypt = require("bcrypt");
+
 
 exports.seed = function(knex, Promise) {
   // Delete all existing entries
@@ -9,7 +11,7 @@ exports.seed = function(knex, Promise) {
       return knex("users").insert([
         {
           username: "admin",
-          password: "pass"
+          password: bcrypt.hashSync("pass", 10)
         }
       ]);
     });
